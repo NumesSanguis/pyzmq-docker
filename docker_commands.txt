@@ -1,0 +1,3 @@
+sudo docker build . -t foo/bar
+sudo docker run -it foo/bar
+sudo docker run -p 5550:5550 -it foo/bar

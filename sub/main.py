@@ -1,12 +1,14 @@
 # CC0
 # Stef van der Struijk
 
+import sys
 import zmq
 
 
-def main():
+def main(ip="*"):
     # ZMQ connection
-    url = "tcp://127.0.0.1:5550"
+    url = "tcp://{}:5551".format(ip)
+    print("Going to bind to: {}".format(url))
     ctx = zmq.Context()
     socket = ctx.socket(zmq.SUB)
     socket.bind(url)  # subscriber creates ZeroMQ socket
@@ -20,4 +22,9 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # pass ip argument
+    if len(sys.argv) == 2:
+        main(sys.argv[1])
+    else:
+        main()
+

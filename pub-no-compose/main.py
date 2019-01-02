@@ -1,13 +1,14 @@
 # CC0
 # Stef van der Struijk
 
+import sys
 import zmq
 import time
 
 
-def main():
+def main(ip="*"):
     # ZMQ connection
-    url = "tcp://127.0.0.1:5550"
+    url = "tcp://{}:5550".format(ip)
     ctx = zmq.Context()
     socket = ctx.socket(zmq.PUB)
     socket.connect(url)  # publisher connects to subscriber
@@ -27,4 +28,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # pass ip argument
+    if len(sys.argv) == 2:
+        main(sys.argv[1])
+    else:
+        main()

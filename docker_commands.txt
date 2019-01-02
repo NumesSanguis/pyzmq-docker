@@ -1,3 +1,15 @@
-sudo docker build . -t foo/bar
-sudo docker run -it foo/bar
-sudo docker run -p 5550:5550 -it foo/bar
+sudo usermod -a -G docker $USER  # add current user to group docker on Linux systems (Ubuntu)
+
+docker build . -t foo/bar  # build docker image
+docker run -it foo/bar  # run build docker image and enter interactive mode
+docker run -p 5550:5550 -it foo/bar  # same as above with mapping Docker port to host
+docker-compose up  # run docker-compose.yml
+docker-compose build / docker-compose up --build  # rebuild images in docker-compose.yml
+
+docker image ls  # show docker images
+docker container ls  # show docker containers
+docker exec -it pyzmq-docker_pub_1  # enter bash in container
+docker attach pyzmq-docker_sub_1  # get
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' pyzmq-docker_sub_1  # get ip of container
+
+To detach the tty without exiting the shell, use the escape sequence Ctrl+p + Ctrl+q

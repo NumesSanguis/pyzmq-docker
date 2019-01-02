@@ -1,3 +1,4 @@
+#sub
 FROM python:3.7.1-slim
 
 MAINTAINER foo bar <foo@spam.eggs>
@@ -10,8 +11,8 @@ WORKDIR /app
 COPY requirements.txt /app
 RUN pip install -r requirements.txt
 
-COPY zmq_pub.py /app/zmq_pub.py
+COPY main.py /app/main.py
 
-EXPOSE 5550
+# EXPOSE 5550
 
-CMD ["python", "zmq_pub.py"]
+CMD ["python", "main.py"]

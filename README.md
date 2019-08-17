@@ -7,6 +7,7 @@ Simplified sample code:
 * pub/sub `main.py` now works with named arguments.
 * Updated this README.md to be more extensive and clear.
 
+
 ## Overview
 Example repository to demonstrate how you can turn Python scripts
 into micro-services in Docker containers, which can communicate over ZeroMQ.
@@ -20,6 +21,13 @@ without knowing where the data comes from.
 With ZeroMQ, only 1 micro-service can `socket.bind(url)` to 1 address.
 However, you can have unlimited micro-services `socket.connect(url)` to an address.
 This means that you can either have many-pub to 1-sub (examples in this Git repo) or 1-pub to many-sub on 1 ip:port combination.
+
+
+## Install Docker
+* [General Docker instructions](https://docs.docker.com/install/#supported-platforms)
+* [Docker Toolbox for Windows 7/8/10 Home](https://docs.docker.com/toolbox/overview/)
+* [Docker for Windows 10  Pro, Enterprise or Education](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)
+* Ubuntu: [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/) and [docker-compose](https://docs.docker.com/compose/install/) and `sudo usermod -a -G docker $USER`
 
 
 ## 1. Python-Python

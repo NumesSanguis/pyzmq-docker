@@ -1,4 +1,4 @@
-# CC0
+# BSD 3-Clause License
 # Stef van der Struijk
 
 import argparse

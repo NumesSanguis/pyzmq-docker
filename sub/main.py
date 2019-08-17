@@ -1,13 +1,13 @@
 # CC0
 # Stef van der Struijk
 
-import sys
+import argparse
 import zmq
 
 
-def main(ip="*"):
+def subscriber(ip="0.0.0.0", port=5551):
     # ZMQ connection
-    url = "tcp://{}:5551".format(ip)
+    url = "tcp://{}:{}".format(ip, port)
     print("Going to bind to: {}".format(url))
     ctx = zmq.Context()
     socket = ctx.socket(zmq.SUB)
@@ -22,9 +22,16 @@ def main(ip="*"):
 
 
 if __name__ == "__main__":
-    # pass ip argument
-    if len(sys.argv) == 2:
-        main(sys.argv[1])
-    else:
-        main()
+    # command line arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--ip", default=argparse.SUPPRESS,
+                        help="IP of (Docker) machine")
+    parser.add_argument("--port", default=argparse.SUPPRESS,
+                        help="Port of (Docker) machine")
 
+    args, leftovers = parser.parse_known_args()
+    print("The following arguments are used: {}".format(args))
+    print("The following arguments are ignored: {}\n".format(leftovers))
+
+    # call function and pass on command line arguments
+    subscriber(**vars(args))

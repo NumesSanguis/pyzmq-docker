@@ -1,1 +1,1 @@
-pyzmq
+pyzmq==25.1

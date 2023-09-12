@@ -108,7 +108,7 @@ Stackoverflow question: https://stackoverflow.com/questions/53802691/pyzmq-docke
 
     docker image ls  # show docker images
     docker container ls  # show docker containers
-    docker exec -it pyzmq-docker_pub_1  # enter bash in container
+    docker exec -it pyzmq-docker_pub_1 bash  # enter bash in container
     docker attach pyzmq-docker_sub_1  # get
 
     To detach the tty without exiting the shell, use the escape sequence Ctrl+p + Ctrl+q

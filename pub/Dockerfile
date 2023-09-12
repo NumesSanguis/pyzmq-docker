@@ -1,5 +1,5 @@
 #pub
-FROM python:3.7.1-slim
+FROM python:3.10-slim
 
 MAINTAINER Stef van der Struijk <stefstruijk+github@protonmail.ch>
 
